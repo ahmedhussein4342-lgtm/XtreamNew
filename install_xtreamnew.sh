@@ -4,7 +4,7 @@
 # wget -q "--no-check-certificate" https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/install_xtreamnew.sh -O - | /bin/sh
 
 PLUGIN_NAME="XtreamNew"
-PLUGIN_DIR="/usr/lib/enigma2/python/Plugins/Extensions/${PLUGIN_NAME}"
+PLUGIN_DIR="/usr/lib/enigma2/python/Plugins/Extensions/${XtreamNew}"
 BACKUP_DIR="/tmp/${PLUGIN_NAME}_backup"
 TMP_DIR="/tmp/${PLUGIN_NAME}_install"
 ZIP_FILE="${TMP_DIR}/${PLUGIN_NAME}.zip"
@@ -16,7 +16,7 @@ GITHUB_BRANCH="main"
 # ================================================
 
 RAW_BASE="https://raw.githubusercontent.com/${ahmedhussein4342-lgtm}/${XtreamNew}/${main}"
-ZIP_URL="${RAW_BASE}/${PLUGIN_NAME}.zip"
+ZIP_URL="${RAW_BASE}/${XtreamNew}.zip"
 
 echo ""
 echo "=================================================="
