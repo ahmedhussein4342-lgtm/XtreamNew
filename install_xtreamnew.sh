@@ -15,7 +15,7 @@ GITHUB_REPO="REPO"
 GITHUB_BRANCH="main"
 # ================================================
 
-RAW_BASE="https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}"
+RAW_BASE="https://raw.githubusercontent.com/${ahmedhussein4342-lgtm}/${XtreamNew}/${GITHUB_BRANCH}"
 ZIP_URL="${RAW_BASE}/${PLUGIN_NAME}.zip"
 
 echo ""
