@@ -1,7 +1,0 @@
-XtreamNew Changelog
-
-1.0.0
-- Initial online installer release.
-- Smart package check.
-- Backup/restore user data.
-- GitHub raw install support.
