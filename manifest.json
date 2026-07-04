@@ -1,0 +1,24 @@
+{
+  "installer": "1.0",
+  "plugin": "XtreamNew",
+  "minimum_image": "OpenATV 7.3 / Python3 Enigma2",
+  "required_packages": [
+    "wget",
+    "curl",
+    "unzip",
+    "ca-certificates",
+    "openssl",
+    "python3",
+    "python3-json",
+    "python3-compression",
+    "python3-requests",
+    "python3-six",
+    "python3-lxml",
+    "python3-yt-dlp",
+    "ffmpeg"
+  ],
+  "optional_packages": [
+    "gstplayer",
+    "exteplayer3"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "plugin": "XtreamNew",
+  "version": "1.0.0",
+  "build": "2026.07.04",
+  "force": false,
+  "zip": "https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/XtreamNew.zip",
+  "message": "Initial public release.",
+  "changelog": "First online installer release."
+}
