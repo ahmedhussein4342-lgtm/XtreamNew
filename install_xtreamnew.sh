@@ -4,19 +4,19 @@
 # wget -q "--no-check-certificate" https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/install_xtreamnew.sh -O - | /bin/sh
 
 PLUGIN_NAME="XtreamNew"
-PLUGIN_DIR="/usr/lib/enigma2/python/Plugins/Extensions/${XtreamNew}"
+PLUGIN_DIR="/usr/lib/enigma2/python/Plugins/Extensions/${PLUGIN_NAME}"
 BACKUP_DIR="/tmp/${PLUGIN_NAME}_backup"
 TMP_DIR="/tmp/${PLUGIN_NAME}_install"
 ZIP_FILE="${TMP_DIR}/${PLUGIN_NAME}.zip"
 
 # ===== EDIT THESE 3 LINES AFTER UPLOAD TO GITHUB =====
-GITHUB_USER="USER"
-GITHUB_REPO="REPO"
+GITHUB_USER="ahmedhussein4342-lgtm"
+GITHUB_REPO="XtreamNew"
 GITHUB_BRANCH="main"
 # ================================================
 
-RAW_BASE="https://raw.githubusercontent.com/${ahmedhussein4342-lgtm}/${XtreamNew}/${main}"
-ZIP_URL="${RAW_BASE}/${XtreamNew}.zip"
+RAW_BASE="https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}"
+ZIP_URL="${RAW_BASE}/${PLUGIN_NAME}.zip"
 
 echo ""
 echo "=================================================="
@@ -150,8 +150,15 @@ install_plugin() {
     mkdir -p /usr/lib/enigma2/python/Plugins/Extensions
     rm -rf "$PLUGIN_DIR"
 
-    unzip -o "$ZIP_FILE" -d /usr/lib/enigma2/python/Plugins/Extensions >/tmp/xtreamnew_unzip.log 2>&1
-    if [ $? -ne 0 ]; then
+    if command -v unzip >/dev/null 2>&1; then
+        unzip -o "$ZIP_FILE" -d /usr/lib/enigma2/python/Plugins/Extensions >/tmp/xtreamnew_unzip.log 2>&1
+        UNZIP_OK=$?
+    else
+        python3 -m zipfile -e "$ZIP_FILE" /usr/lib/enigma2/python/Plugins/Extensions >/tmp/xtreamnew_unzip.log 2>&1
+        UNZIP_OK=$?
+    fi
+
+    if [ "$UNZIP_OK" -ne 0 ]; then
         echo "[ERROR] Unzip failed. See /tmp/xtreamnew_unzip.log"
         exit 1
     fi
