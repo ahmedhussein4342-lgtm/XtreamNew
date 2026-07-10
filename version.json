@@ -1,0 +1,23 @@
+{
+  "plugin": "XtreamNew",
+  "version": "1.0.1",
+  "packages": {
+    "py311": {
+      "url": "XtreamNew_py311.zip",
+      "sha256": "2099f448ac94497dca021fab261e842fca7babdd6b3cd9359ff8aa63f3ffd805"
+    },
+    "py312": {
+      "url": "XtreamNew_py312.zip",
+      "sha256": "32bee305e360def6f36cc59d2cf36a4d00c3c8eaf43b88523a377923920037f3"
+    },
+    "py313": {
+      "url": "XtreamNew_py313.zip",
+      "sha256": "e5cf0227942cb15312a274dd528e1444bea5d59657867bdd088aab3873c6a1c7"
+    },
+    "py314": {
+      "url": "XtreamNew_py314.zip",
+      "sha256": "78e5cba0bf820311f850c8b18790abe9af6baf6d6b383614a9c16962e5c00f13"
+    }
+  },
+  "message": "XtreamNew update"
+}
