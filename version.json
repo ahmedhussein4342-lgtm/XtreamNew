@@ -1,23 +1,8 @@
 {
   "plugin": "XtreamNew",
-  "version": "1.0.0",
-  "packages": {
-    "py311": {
-      "url": "XtreamNew_py311.zip",
-      "sha256": "7b75d51463c021aa125841a859a2df5014a0aaab05b3e9413cc47c5a37e2c797"
-    },
-    "py312": {
-      "url": "XtreamNew_py312.zip",
-      "sha256": "b0198be27a2d4734d1b8b4cfcac8dc7869b5f0310f6561c032c15411129ff056"
-    },
-    "py313": {
-      "url": "XtreamNew_py313.zip",
-      "sha256": "f6198c9cdf93da0151c1049719d34d0bc489851993e0adc1e241d9d12eb36d07"
-    },
-    "py314": {
-      "url": "XtreamNew_py314.zip",
-      "sha256": "d52d947c734628edc942be215ad3fb08659ad5b52df59c0f17ad03dff6c7aeca"
-    }
-  },
-  "message": "XtreamNew update"
+  "version": "1.0.2",
+  "build": 1,
+  "python": "3.14",
+  "arch": "armv7",
+  "release": "SO"
 }
