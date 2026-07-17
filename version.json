@@ -1,8 +1,0 @@
-{
-  "plugin": "XtreamNew",
-  "version": "1.0.2",
-  "build": 1,
-  "python": "3.14",
-  "arch": "armv7",
-  "release": "SO"
-}
