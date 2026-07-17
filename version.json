@@ -5,7 +5,7 @@
   "channel": "RC",
   "force": false,
   "message": "A new XtreamNew update is available.",
-  "changelog": "اكتب هنا تفاصيل التحديث الجديد",
+  "changelog": "",
   "url": "https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/",
   "packages": {
     "py314_armv7": "https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/XtreamNew_FULL_SO_py314_armv7.zip"
