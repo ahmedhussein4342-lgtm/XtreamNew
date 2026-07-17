@@ -1,6 +1,6 @@
 {
-  "plugin": "XtreamNew",
-  "version": "1.0.2",
-  "build": "1783593602",
-  "channel": "LTS-RC"
+    "plugin":  "XtreamNew",
+    "version":  "1.0.3",
+    "build":  "1783593603",
+    "channel":  "RC"
 }
