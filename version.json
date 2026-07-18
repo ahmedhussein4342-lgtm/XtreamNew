@@ -7,12 +7,20 @@
   "message": "A new XtreamNew update is available.",
   "changelog": "",
   "url": "https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/",
+
   "packages": {
     "py313_armv7": "https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/XtreamNew_FULL_SO_py313_armv7.zip",
-    "py314_armv7": "https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/XtreamNew_FULL_SO_py314_armv7.zip"
+    "py313_arm64": "https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/XtreamNew_FULL_SO_py313_arm64.zip",
+
+    "py314_armv7": "https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/XtreamNew_FULL_SO_py314_armv7.zip",
+    "py314_arm64": "https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/XtreamNew_FULL_SO_py314_arm64.zip"
   },
+
   "sha256": {
-    "py313_armv7": "ضع هنا SHA256 الخاص بملف py313",
-    "py314_armv7": "94160671ca11c1c5637eda774eb39fbd53c09a7ddc553407c237c494912aab56"
+    "py313_armv7": "SHA256_ARMV7_313",
+    "py313_arm64": "SHA256_ARM64_313",
+
+    "py314_armv7": "SHA256_ARMV7_314",
+    "py314_arm64": "SHA256_ARM64_314"
   }
 }
