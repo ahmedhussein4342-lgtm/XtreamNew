@@ -48,16 +48,18 @@ PY
 )"
 
 case "$PYTAG" in
-    py311|py312|py313|py314) ;;
+    py[0-9][0-9][0-9]) ;;
     *)
-        echo "ERROR: Unsupported Python version: $PYTAG"
+        echo "ERROR: Could not detect a supported Python tag: $PYTAG"
         exit 1
         ;;
 esac
 
-MACHINE="$(uname -m)"
-case "$MACHINE" in
-    armv7l|armv7*) ARCH="armv7" ;;
+MACHINE="$(uname -m 2>/dev/null || echo unknown)"
+MACHINE_LC="$(printf '%s' "$MACHINE" | tr '[:upper:]' '[:lower:]')"
+case "$MACHINE_LC" in
+    aarch64|arm64|arm64-v8a|*aarch64*|*arm64*) ARCH="arm64" ;;
+    armv7l|armv7|armv7a|armhf|*armv7*) ARCH="armv7" ;;
     *)
         echo "ERROR: Unsupported architecture: $MACHINE"
         exit 1
