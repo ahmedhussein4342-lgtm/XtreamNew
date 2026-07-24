@@ -47,28 +47,26 @@ print("py%d%d" % sys.version_info[:2])
 PY
 )"
 
-case "$PYTAG" in
-    py[0-9][0-9][0-9]) ;;
-    *)
-        echo "ERROR: Could not detect a supported Python tag: $PYTAG"
-        exit 1
-        ;;
-esac
+PYMAJOR="$(python3 -c 'import sys; print(sys.version_info[0])')"
+PYMINOR="$(python3 -c 'import sys; print(sys.version_info[1])')"
+if [ "$PYMAJOR" != "3" ] || [ "$PYMINOR" -lt 11 ]; then
+    echo "ERROR: Unsupported Python version: $PYTAG"
+    exit 1
+fi
 
-MACHINE="$(uname -m 2>/dev/null || echo unknown)"
-MACHINE_LC="$(printf '%s' "$MACHINE" | tr '[:upper:]' '[:lower:]')"
-case "$MACHINE_LC" in
-    aarch64|arm64|arm64-v8a|*aarch64*|*arm64*) ARCH="arm64" ;;
-    armv7l|armv7|armv7a|armhf|*armv7*) ARCH="armv7" ;;
+MACHINE="$(uname -m)"
+case "$MACHINE" in
+    armv7l|armv7*) ARCH="armv7" ;;
+    aarch64|arm64) ARCH="arm64" ;;
     *)
         echo "ERROR: Unsupported architecture: $MACHINE"
         exit 1
         ;;
 esac
 
-NAME="XtreamNew_FULL_SO_${PYTAG}_${ARCH}.zip"
-URL="$BASE_URL/$NAME"
-ZIPFILE="$TMP/$NAME"
+PACKAGE_KEY="${PYTAG}_${ARCH}"
+VERSION_URL="$BASE_URL/version.json"
+VERSION_FILE="$TMP/version.json"
 EXTRACT="$TMP/extracted"
 
 rm -rf "$TMP" "$BACKUP"
@@ -76,8 +74,55 @@ mkdir -p "$EXTRACT" || exit 1
 
 echo "Python       : $PYTAG"
 echo "Architecture : $ARCH"
-echo "Package      : $NAME"
+echo "Package key  : $PACKAGE_KEY"
 echo "Source       : GitHub main branch"
+echo
+echo "Reading online package index..."
+echo "------------------------------------------------------------"
+
+if ! wget -q --no-check-certificate "$VERSION_URL" -O "$VERSION_FILE"; then
+    echo "ERROR: Could not download version.json."
+    echo "URL: $VERSION_URL"
+    exit 1
+fi
+
+PACKAGE_INFO="$(python3 - "$VERSION_FILE" "$PACKAGE_KEY" <<'PYJSON'
+import json
+import sys
+
+path, key = sys.argv[1], sys.argv[2]
+try:
+    with open(path, "r") as fh:
+        data = json.load(fh)
+except Exception as exc:
+    sys.stderr.write("Invalid version.json: %s\n" % exc)
+    sys.exit(2)
+
+packages = data.get("packages") or {}
+hashes = data.get("sha256") or {}
+url = packages.get(key, "") if isinstance(packages, dict) else ""
+sha = hashes.get(key, "") if isinstance(hashes, dict) else ""
+if not url:
+    available = sorted(k for k in packages if k.endswith("_" + key.split("_", 1)[1])) if isinstance(packages, dict) else []
+    sys.stderr.write("No exact package for %s. Available for this architecture: %s\n" %
+                     (key, ", ".join(available) if available else "none"))
+    sys.exit(3)
+print(url)
+print(sha)
+PYJSON
+)" || {
+    echo "ERROR: No compatible XtreamNew package was found."
+    echo "Required key: $PACKAGE_KEY"
+    exit 1
+}
+
+URL="$(printf '%s\n' "$PACKAGE_INFO" | sed -n '1p')"
+EXPECTED_SHA="$(printf '%s\n' "$PACKAGE_INFO" | sed -n '2p')"
+NAME="$(basename "${URL%%\?*}")"
+[ -n "$NAME" ] || NAME="XtreamNew_FULL_SO_${PACKAGE_KEY}.zip"
+ZIPFILE="$TMP/$NAME"
+
+echo "Package      : $NAME"
 echo
 echo "Downloading package..."
 echo "------------------------------------------------------------"
@@ -92,6 +137,28 @@ fi
 if [ ! -s "$ZIPFILE" ]; then
     echo "ERROR: Downloaded package is empty."
     exit 1
+fi
+
+if [ -n "$EXPECTED_SHA" ]; then
+    ACTUAL_SHA="$(python3 - "$ZIPFILE" <<'PYHASH'
+import hashlib
+import sys
+h = hashlib.sha256()
+with open(sys.argv[1], "rb") as fh:
+    for chunk in iter(lambda: fh.read(1024 * 1024), b""):
+        h.update(chunk)
+print(h.hexdigest())
+PYHASH
+)"
+    if [ "$ACTUAL_SHA" != "$EXPECTED_SHA" ]; then
+        echo "ERROR: SHA256 verification failed."
+        echo "Expected: $EXPECTED_SHA"
+        echo "Actual  : $ACTUAL_SHA"
+        exit 1
+    fi
+    echo "SHA256 check : OK"
+else
+    echo "WARNING: No SHA256 was provided for $PACKAGE_KEY."
 fi
 
 echo
