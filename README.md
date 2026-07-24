@@ -136,7 +136,7 @@ Lightning-fast MAC server connection and page loading speeds.
 
 UI enhancements with unified colors across all screens.
 
-Added a Web Interface to manage servers, check ping, and monitor server status (Access via: http://ip:8090).
+Added a Web Interface to manage servers, check ping, and monitor server status (Access via: http://ip:7090).
 
 Redesigned the Settings menu to be tab-categorized and easier to navigate using the < > buttons.
 
