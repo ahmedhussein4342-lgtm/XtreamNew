@@ -1,0 +1,8 @@
+XtreamNew 2.0.1
+Build: 1784892715
+Channel: RC
+
+- Corrected GitHub online package publishing.
+- Versioned package filenames prevent stale raw.githubusercontent.com cache.
+- SHA256 values regenerated from the exact uploaded ZIP files.
+- Online update notification advances from 2.0.0 to 2.0.1.
