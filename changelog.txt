@@ -1,0 +1,8 @@
+XtreamNew 2.0.2
+Build: 1784893620
+Channel: RC
+
+- Fixed online updater GitHub raw cache causing HTTP 404.
+- Added cache busting to version.json and package downloads.
+- Package architecture detection normalized for armv7 and arm64/aarch64.
+- Same-version newer build detection added.
