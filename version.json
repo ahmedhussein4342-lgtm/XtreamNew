@@ -1,0 +1,33 @@
+{
+    "plugin":  "XtreamNew",
+    "version":  "2.0.4",
+    "build":  "1784893622",
+    "channel":  "RC",
+    "force":  false,
+    "message":  "A new XtreamNew update is available.",
+    "changelog":  "XtreamNew 2.0.4\nBuild: 1784893622\nChannel: RC",
+    "repository_page":  "https://github.com/ahmedhussein4342-lgtm/XtreamNew",
+    "url":  "https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/",
+    "packages":  {
+                     "py312_arm64":  "https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/XtreamNew_FULL_SO_py312_arm64.zip",
+                     "py312_armv7":  "https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/XtreamNew_FULL_SO_py312_armv7.zip",
+                     "py312_mipsel":  "https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/XtreamNew_FULL_SO_py312_mipsel.zip",
+                     "py313_arm64":  "https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/XtreamNew_FULL_SO_py313_arm64.zip",
+                     "py313_armv7":  "https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/XtreamNew_FULL_SO_py313_armv7.zip",
+                     "py313_mipsel":  "https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/XtreamNew_FULL_SO_py313_mipsel.zip",
+                     "py314_arm64":  "https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/XtreamNew_FULL_SO_py314_arm64.zip",
+                     "py314_armv7":  "https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/XtreamNew_FULL_SO_py314_armv7.zip",
+                     "py314_mipsel":  "https://raw.githubusercontent.com/ahmedhussein4342-lgtm/XtreamNew/main/XtreamNew_FULL_SO_py314_mipsel.zip"
+                 },
+    "sha256":  {
+                   "py312_arm64":  "e01d273ce7aa1ac88d46d6c01b572ae38ca519207aa6521dff4850fe2840ee56",
+                   "py312_armv7":  "546c830741b74ebac890db461c3145d3653d42c18486e1356dac70d1c116b3eb",
+                   "py312_mipsel":  "4b01285f706b25522624d0fbc1f5ea530bb9c2683f6bbc88c6aa96b92235a9bb",
+                   "py313_arm64":  "d8e9e8ee35cdc736bd99ddfc164f82afb61dcd5d501926c4b685ccfd69f8e538",
+                   "py313_armv7":  "9505aee51c705692d32f313f9a1f177bcf9eea92ce6c48ef861467c2f0fcfb93",
+                   "py313_mipsel":  "7184dfdb354905d247d4a25698b31fe297d842f5584137d2e700b28aa747feb1",
+                   "py314_arm64":  "faf0c5ec18c38bbdf98b58dcb9b5333448a1ad6dc5d5eae0424c6765496ceabd",
+                   "py314_armv7":  "1627d2dd7115e6c84e46e9d805e39288a64b48b9f25702f1e7aaa50b28035921",
+                   "py314_mipsel":  "831e6cb24a938369ff720d1bdf09b70da5f75bf83dfcf4008dce82986e15af6e"
+               }
+}
